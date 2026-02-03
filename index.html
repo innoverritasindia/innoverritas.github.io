@@ -1,38 +1,1186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Innoverritas | Consultancy & Research</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innoverritas - Clinical Research & CBSE Consultancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Update these colors to match your brand */
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-nav {
+            background: var(--primary-color);
+            color: var(--white) !important;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--secondary-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary-light {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary-light:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .btn-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Services Overview */
+        .services-overview {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            padding: 1rem;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Contact Page */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Page sections - hidden by default */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Service Detail Pages */
+        .service-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content {
+            padding: 80px 0;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .content-section ul {
+            list-style-position: inside;
+            color: var(--text-light);
+            margin-left: 1rem;
+        }
+
+        .content-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .services-overview,
+            .leadership,
+            .contact-section,
+            .service-content {
+                padding: 40px 0;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 40px; line-height: 1.6;">
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <!-- Add your logo image here: <img src="logo.png" alt="Innoverritas" class="logo-img"> -->
+                    <span class="logo-text">Innoverritas</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a onclick="showPage('home')" class="nav-link active">Home</a></li>
+                    <li><a onclick="showPage('clinical')" class="nav-link">Clinical Research</a></li>
+                    <li><a onclick="showPage('cbse')" class="nav-link">CBSE Consultancy</a></li>
+                    <li><a onclick="showPage('about')" class="nav-link">About Us</a></li>
+                    <li><a onclick="showPage('contact')" class="btn-nav nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <h1>Innoverritas</h1>
-  <h3>Consultancy & Research</h3>
+    <!-- HOME PAGE -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Empowering Excellence in Research & Education</h1>
+                    <p>Leading clinical research services and CBSE affiliation consultancy</p>
+                    <div class="hero-buttons">
+                        <a onclick="showPage('contact')" class="btn btn-primary">Schedule a Consultation</a>
+                        <a href="#" class="btn btn-secondary">Download Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <p>
-    Innoverritas is a consultancy and research firm focused on delivering
-    insight-driven strategies that support informed decision-making.
-  </p>
+        <!-- Services Overview -->
+        <section class="services-overview">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔬</div>
+                        <h3>Clinical Research</h3>
+                        <p>Comprehensive clinical trial management, regulatory support, and research consulting services</p>
+                        <a onclick="showPage('clinical')" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>CBSE Consultancy</h3>
+                        <p>Expert guidance for CBSE school affiliations, compliance, and documentation support</p>
+                        <a onclick="showPage('cbse')" class="btn-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <h2>What We Do</h2>
-  <ul>
-    <li>Strategic Consulting</li>
-    <li>Research & Market Insights</li>
-    <li>Data Analysis & Reporting</li>
-    <li>Advisory Services</li>
-  </ul>
+        <!-- Leadership -->
+        <section class="leadership">
+            <div class="container">
+                <h2 class="section-title">Our Leadership</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <!-- Add image: <img src="varsha-rajput.jpg" alt="Varsha Rajput"> -->
+                            Photo Coming Soon
+                        </div>
+                        <h3>Varsha Rajput</h3>
+                        <p class="role">Head, CEO - Clinical Research</p>
+                        <p class="bio">Leading clinical research initiatives with expertise in trial management and regulatory compliance</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <!-- Add image: <img src="ajay-rajput.jpg" alt="Ajay Singh Rajput"> -->
+                            Photo Coming Soon
+                        </div>
+                        <h3>Ajay Singh Rajput</h3>
+                        <p class="role">Co-Head - CBSE Consultancy</p>
+                        <p class="bio">Expert in CBSE affiliation processes, compliance, and educational consultancy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <h2>Why Innoverritas</h2>
-  <p>
-    We combine analytical rigor with practical expertise to help organizations
-    navigate complex challenges with clarity and confidence.
-  </p>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss how we can help with your clinical research or CBSE affiliation needs</p>
+                <a onclick="showPage('contact')" class="btn btn-primary-light">Schedule a Consultation</a>
+            </div>
+        </section>
+    </div>
 
-  <h2>Contact</h2>
-  <p>
-    Email: <a href="mailto:info@innoverritas.in">info@innoverritas.in</a>
-  </p>
+    <!-- CLINICAL RESEARCH PAGE -->
+    <div id="clinical" class="page-section">
+        <section class="service-hero">
+            <div class="container">
+                <h1>Clinical Research Services</h1>
+                <p>Comprehensive clinical trial management and research consulting</p>
+            </div>
+        </section>
 
+        <section class="service-content">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Clinical Research Expertise</h2>
+                    <p>At Innoverritas, we provide end-to-end clinical research services, from trial design to regulatory compliance. Our team, led by Varsha Rajput, brings extensive experience in managing both ongoing and completed clinical trials across various therapeutic areas.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>What We Offer</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>Clinical Trial Management</h3>
+                            <p>Complete oversight of clinical trials including protocol development, site selection, patient recruitment, and data management.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Regulatory Support</h3>
+                            <p>Expert guidance on regulatory submissions, compliance monitoring, and interaction with regulatory authorities.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Research Consulting</h3>
+                            <p>Strategic consulting for research design, feasibility assessments, and scientific advisory services.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Quality Assurance</h3>
+                            <p>Ensuring GCP compliance, quality control, and implementation of best practices throughout the research process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Our Approach</h2>
+                    <p>We understand that every clinical trial is unique. Our approach combines scientific rigor with practical expertise to deliver results that meet the highest standards of quality and compliance. We work closely with sponsors, investigators, and sites to ensure successful trial execution.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Track Record</h2>
+                    <p>Our portfolio includes both completed and ongoing clinical trials across multiple therapeutic areas. We pride ourselves on delivering timely results while maintaining the highest standards of patient safety and data integrity.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a onclick="showPage('contact')" class="btn btn-primary-light">Schedule a Clinical Research Consultation</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CBSE CONSULTANCY PAGE -->
+    <div id="cbse" class="page-section">
+        <section class="service-hero">
+            <div class="container">
+                <h1>CBSE Consultancy Services</h1>
+                <p>Expert guidance for CBSE school affiliations and compliance</p>
+            </div>
+        </section>
+
+        <section class="service-content">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Your Partner in Educational Excellence</h2>
+                    <p>Innoverritas provides comprehensive CBSE consultancy services to help educational institutions navigate the complex process of obtaining and maintaining CBSE affiliation. Led by Ajay Singh Rajput, our team brings in-depth knowledge of CBSE requirements and regulations.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Our Services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>New Affiliation Support</h3>
+                            <p>Complete guidance for schools seeking CBSE affiliation, from initial application to final approval.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Compliance Consulting</h3>
+                            <p>Ensuring ongoing compliance with CBSE norms, regulations, and quality standards.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Documentation Support</h3>
+                            <p>Expert assistance with all required documentation, forms, and submissions to CBSE.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Infrastructure Assessment</h3>
+                            <p>Evaluation and recommendations for meeting CBSE infrastructure and facility requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>The Affiliation Process</h2>
+                    <p>Obtaining CBSE affiliation requires meticulous attention to detail and thorough understanding of CBSE guidelines. We guide you through every step:</p>
+                    <ul>
+                        <li>Initial assessment and eligibility verification</li>
+                        <li>Infrastructure and facility evaluation</li>
+                        <li>Documentation preparation and submission</li>
+                        <li>CBSE inspection preparation and support</li>
+                        <li>Post-affiliation compliance and renewal assistance</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Why Choose Innoverritas?</h2>
+                    <p>Our deep understanding of CBSE requirements, combined with our commitment to excellence, ensures that your institution receives the expert guidance needed for successful affiliation. We provide personalized support tailored to your institution's unique needs and circumstances.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a onclick="showPage('contact')" class="btn btn-primary-light">Schedule a CBSE Consultancy Session</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page-section">
+        <section class="contact-hero">
+            <div class="container">
+                <h1>About Innoverritas</h1>
+                <p>Excellence in Research and Educational Consultancy</p>
+            </div>
+        </section>
+
+        <section class="service-content">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Who We Are</h2>
+                    <p>Innoverritas is a leading consultancy firm specializing in clinical research and CBSE educational consultancy. We combine deep expertise in both healthcare research and educational compliance to deliver exceptional results for our clients.</p>
+                    <p>Our name, "Innoverritas," reflects our commitment to innovation and truth (veritas) in everything we do. We believe in bringing cutting-edge solutions while maintaining the highest standards of integrity and excellence.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Our Mission</h2>
+                    <p>To empower organizations in healthcare and education through expert guidance, rigorous compliance support, and innovative solutions that drive meaningful outcomes.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Our Values</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3>Excellence</h3>
+                            <p>We pursue excellence in every project, ensuring the highest quality standards in all our deliverables.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Integrity</h3>
+                            <p>We operate with complete transparency and ethical conduct, building trust with every engagement.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Innovation</h3>
+                            <p>We continuously seek better ways to serve our clients through innovative approaches and solutions.</p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Expertise</h3>
+                            <p>Our team brings deep knowledge and experience in both clinical research and educational consultancy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Our Leadership Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-image">
+                                <!-- Add image here -->
+                                Photo Coming Soon
+                            </div>
+                            <h3>Varsha Rajput</h3>
+                            <p class="role">Head, CEO - Clinical Research</p>
+                            <p class="bio">Varsha leads our clinical research division with extensive experience in clinical trial management, regulatory compliance, and research consulting. Her expertise spans multiple therapeutic areas and includes both ongoing and completed trials. Under her leadership, Innoverritas has established itself as a trusted partner for comprehensive clinical research services.</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-image">
+                                <!-- Add image here -->
+                                Photo Coming Soon
+                            </div>
+                            <h3>Ajay Singh Rajput</h3>
+                            <p class="role">Co-Head - CBSE Consultancy</p>
+                            <p class="bio">Ajay brings deep expertise in CBSE affiliation processes, educational compliance, and institutional development. His thorough understanding of CBSE requirements and regulations helps educational institutions navigate the complex affiliation process successfully. He is dedicated to helping schools achieve and maintain CBSE standards while fostering educational excellence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Why Work With Us?</h2>
+                    <p>Choosing Innoverritas means partnering with a team that understands the complexities of both clinical research and educational compliance. Our dual expertise allows us to serve diverse client needs with equal proficiency. We are committed to delivering results that exceed expectations while maintaining the highest standards of professionalism and ethics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Work Together?</h2>
+                <p>Contact us today to discuss how we can help you achieve your goals</p>
+                <a onclick="showPage('contact')" class="btn btn-primary-light">Get in Touch</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-section">
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you. Let us know how we can help.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form onsubmit="handleSubmit(event)" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">Service Interested In *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="clinical-research">Clinical Research</option>
+                                    <option value="cbse-consultancy">CBSE Consultancy</option>
+                                    <option value="both">Both Services</option>
+                                    <option value="other">Other/General Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="organization">Organization/Institution</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary-light" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <p>info@innoverritas.in</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Phone</h4>
+                            <p>+91 [Add Your Number]</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Clinical Research Inquiries</h4>
+                            <p>For clinical research services and consultations, please mention "Clinical Research" in your message or email us directly.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>CBSE Consultancy Inquiries</h4>
+                            <p>For CBSE affiliation and educational consultancy, please mention "CBSE Consultancy" in your message or contact us directly.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                            Saturday: 10:00 AM - 2:00 PM<br>
+                            Sunday: Closed</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>Response Time</h4>
+                            <p>We typically respond to all inquiries within 24-48 hours during business days.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service-Specific Forms -->
+                <div style="margin-top: 60px;">
+                    <h2 class="section-title">Service-Specific Inquiries</h2>
+                    
+                    <div class="services-grid" style="margin-top: 2rem;">
+                        <div class="service-card">
+                            <h3>Clinical Research Consultation</h3>
+                            <p style="margin-bottom: 1.5rem;">Schedule a consultation for clinical trial management and research services.</p>
+                            <form onsubmit="handleSubmit(event)" class="service-form">
+                                <input type="hidden" name="service-type" value="Clinical Research">
+
+                                <div class="form-group">
+                                    <label>Name *</label>
+                                    <input type="text" name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" name="phone">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tell us about your project *</label>
+                                    <textarea name="message" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary-light" style="width: 100%;">Request Clinical Research Consultation</button>
+                            </form>
+                        </div>
+
+                        <div class="service-card">
+                            <h3>CBSE Consultancy Inquiry</h3>
+                            <p style="margin-bottom: 1.5rem;">Get expert guidance on CBSE affiliation and compliance.</p>
+                            <form onsubmit="handleSubmit(event)" class="service-form">
+                                <input type="hidden" name="service-type" value="CBSE Consultancy">
+
+                                <div class="form-group">
+                                    <label>Name *</label>
+                                    <input type="text" name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" name="phone">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>School/Institution Name</label>
+                                    <input type="text" name="institution" placeholder="Name of your school">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>How can we help? *</label>
+                                    <textarea name="message" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary-light" style="width: 100%;">Request CBSE Consultation</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Innoverritas</h4>
+                    <p>Excellence in Clinical Research and Educational Consultancy</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a onclick="showPage('clinical')">Clinical Research</a></li>
+                        <li><a onclick="showPage('cbse')">CBSE Consultancy</a></li>
+                        <li><a onclick="showPage('about')">About Us</a></li>
+                        <li><a onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@innoverritas.in</p>
+                    <p>Phone: +91 [Your Number]</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Innoverritas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Page navigation
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageName);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Update active nav link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Basic validation
+            let isValid = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'red';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+            
+            if (isValid) {
+                // In a real deployment on Netlify, forms work automatically
+                // For now, show success message
+                alert('Thank you for your message! We will get back to you soon.\n\nNote: This is a demo. On Netlify, forms will automatically submit to your dashboard.');
+                form.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+            
+            return false;
+        }
+
+        // Smooth scroll for any future anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to sections
+        document.querySelectorAll('.service-card, .team-member, .content-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
