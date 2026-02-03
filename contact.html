@@ -1,143 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Innoverritas</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* ===============================
-           PASTE YOUR ORIGINAL <style>
-           BLOCK HERE — NO CHANGES
-        =============================== */
-    </style>
-</head>
-
-<body>
-
-<!-- ================= NAVIGATION (UNCHANGED) ================= -->
-<nav class="navbar">
+<section class="contact-hero">
     <div class="container">
-        <div class="nav-wrapper">
+        <h1>Get in Touch</h1>
+        <p>Whether you're starting a clinical trial or seeking CBSE affiliation, our experts are here to guide you.</p>
+    </div>
+</section>
 
-            <div class="logo">
-                <span class="logo-text">Innoverritas</span>
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Fields marked with * are required.</p>
+                
+                <form onsubmit="handleSubmit(event)" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service" name="service">
+                            <option value="clinical">Clinical Research</option>
+                            <option value="cbse">CBSE Consultancy</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-light" style="width: 100%; font-size: 1.1rem;">
+                        Send Message
+                    </button>
+                </form>
             </div>
 
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@innoverritas.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 (Enter Phone Number)</p>
+                        </div>
+                    </div>
+                </div>
 
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="clinical.html" class="nav-link">Clinical Research</a></li>
-                <li><a href="cbse.html" class="nav-link">CBSE Consultancy</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="contact.html" class="btn-nav nav-link active">Contact Us</a></li>
-            </ul>
-
+                <div class="info-card" style="margin-top: 2rem;">
+                    <h3>Office Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday:</span> <span>9:00 AM - 6:00 PM</span></li>
+                        <li><span>Saturday:</span> <span>10:00 AM - 2:00 PM</span></li>
+                        <li><span>Sunday:</span> <span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-
-<!-- ================= CONTACT PAGE (CUT FROM YOUR CODE) ================= -->
-<div id="contact" class="page-section active">
-
-    <section class="contact-hero">
-        <div class="container">
-            <h1>Get in Touch</h1>
-            <p>We'd love to hear from you. Let us know how we can help.</p>
-        </div>
-    </section>
-
-    <section class="contact-section">
-        <div class="container">
-
-            <div class="contact-grid">
-
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h2>Send Us a Message</h2>
-
-                    <form onsubmit="handleSubmit(event)" id="contactForm">
-
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Service Interested In *</label>
-                            <select required>
-                                <option value="">Select</option>
-                                <option>Clinical Research</option>
-                                <option>CBSE Consultancy</option>
-                                <option>Both</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Message *</label>
-                            <textarea required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary-light">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-
-                    <div class="info-item">
-                        <h4>Email</h4>
-                        <p>info@innoverritas.in</p>
-                    </div>
-
-                    <div class="info-item">
-                        <h4>Phone</h4>
-                        <p>+91 [Add Your Number]</p>
-                    </div>
-
-                    <div class="info-item">
-                        <h4>Business Hours</h4>
-                        <p>
-                            Monday – Friday: 9:00 AM – 6:00 PM<br>
-                            Saturday: 10:00 AM – 2:00 PM<br>
-                            Sunday: Closed
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-</div>
-
-<!-- ================= FOOTER (UNCHANGED) ================= -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-bottom">
-            <p>© 2026 Innoverritas. All rights reserved.</p>
-        </div>
-
-
-     
+</section>
