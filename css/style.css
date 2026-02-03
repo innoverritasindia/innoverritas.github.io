@@ -301,7 +301,66 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
 }
+/* Contact Page Specific Enhancements */
+.contact-form h2 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
 
+.info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    background: var(--bg-light);
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.info-item h4 {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+}
+
+.hours-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.hours-list li:last-child {
+    border-bottom: none;
+}
+
+/* Input Focus States */
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
 /* Service Detail Pages */
 .service-hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
