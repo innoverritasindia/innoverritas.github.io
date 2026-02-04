@@ -1,73 +1,72 @@
 <section class="contact-hero">
     <div class="container">
-        <h1>Get in Touch</h1>
-        <p>Whether you're starting a clinical trial or seeking CBSE affiliation, our experts are here to guide you.</p>
+        <h1>Connect with Our Experts</h1>
+        <p>Strategic solutions for Clinical Research and CBSE Educational Consultancy.</p>
     </div>
 </section>
 
 <section class="contact-section">
     <div class="container">
         <div class="contact-grid">
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Fields marked with * are required.</p>
+            <div class="contact-form-card">
+                <h2>Inquiry Form</h2>
+                <p class="form-subtitle">Please fill out the form below and we will respond within 24 hours.</p>
                 
                 <form onsubmit="handleSubmit(event)" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" placeholder="Mr./Ms. Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Official Email *</label>
+                            <input type="email" id="email" placeholder="email@company.com" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service">Service of Interest</label>
+                        <label for="service">Department of Interest</label>
                         <select id="service" name="service">
-                            <option value="clinical">Clinical Research</option>
-                            <option value="cbse">CBSE Consultancy</option>
-                            <option value="general">General Inquiry</option>
+                            <option value="clinical">Clinical Trials & SMO Services</option>
+                            <option value="cbse">CBSE Affiliation & Consultancy</option>
+                            <option value="admin">Administrative Inquiry</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                        <label for="message">Detailed Message *</label>
+                        <textarea id="message" rows="5" placeholder="Describe your requirements..." required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary-light" style="width: 100%; font-size: 1.1rem;">
-                        Send Message
-                    </button>
+                    <button type="submit" class="btn btn-primary-light">Submit Official Inquiry</button>
                 </form>
             </div>
 
-            <div class="contact-info">
-                <div class="info-card">
-                    <h3>Contact Information</h3>
+            <div class="contact-sidebar">
+                <div class="info-card dark-theme">
+                    <h3>Direct Communication</h3>
                     <div class="info-item">
-                        <div class="info-icon">📧</div>
+                        <span class="info-icon">📧</span>
                         <div>
-                            <h4>Email Us</h4>
+                            <h4>Corporate Email</h4>
                             <p>info@innoverritas.com</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon">📞</div>
+                        <span class="info-icon">📞</span>
                         <div>
-                            <h4>Call Us</h4>
-                            <p>+91 (Enter Phone Number)</p>
+                            <h4>Contact Number</h4>
+                            <p>+91 (Update Number Here)</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="info-card" style="margin-top: 2rem;">
-                    <h3>Office Hours</h3>
+                <div class="info-card">
+                    <h3>Operational Hours</h3>
                     <ul class="hours-list">
-                        <li><span>Monday - Friday:</span> <span>9:00 AM - 6:00 PM</span></li>
-                        <li><span>Saturday:</span> <span>10:00 AM - 2:00 PM</span></li>
-                        <li><span>Sunday:</span> <span>Closed</span></li>
+                        <li><span>Mon - Fri</span> <span>09:00 - 18:00</span></li>
+                        <li><span>Saturday</span> <span>10:00 - 14:00</span></li>
+                        <li><span>Sunday</span> <span class="closed-tag">Closed</span></li>
                     </ul>
                 </div>
             </div>
