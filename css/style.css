@@ -432,3 +432,61 @@ body {
     }
     .nav-menu.active { left: 0; }
 }
+/* Systematic Grid Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Form gets more space than the sidebar */
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-form-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* Sidebar Styles */
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-card.dark-theme {
+    background: #0f172a; /* Corporate Dark Blue/Black */
+    color: white;
+}
+
+.info-card.dark-theme h4, 
+.info-card.dark-theme h3 {
+    color: white;
+}
+
+.closed-tag {
+    color: #ef4444; /* Red for closed */
+    font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stacks column on small screens */
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
