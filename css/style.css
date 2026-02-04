@@ -272,6 +272,62 @@ body {
         </div>
     </div>
 </section>
+/* --- About Page Specifics --- */
+.about-hero {
+    background: #0f172a;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.ceo-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.ceo-card {
+    text-align: center;
+    max-width: 600px;
+}
+
+.ceo-size {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 20px;
+    border: 5px solid #2563eb; /* Blue border for CEO */
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 40px 0;
+}
+
+.mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 80px;
+}
+
+.mentor-size {
+    width: 180px;
+    height: 180px;
+}
+
+.team-member h4 {
+    margin-top: 15px;
+    color: #0f172a;
+}
+
+/* Ensure images don't break the circles */
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* --- Contact Page --- */
 
 .contact-hero {
