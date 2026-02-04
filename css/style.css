@@ -6,12 +6,13 @@
 }
 
 :root {
-    --primary-color: #2563eb;
+    --primary-color: #0f172a;
     --secondary-color: #1e40af;
     --accent-color: #3b82f6;
     --text-dark: #1f2937;
+    --text-main: #334155;
     --text-light: #6b7280;
-    --bg-light: #f9fafb;
+    --bg-light: #f8fafc;
     --white: #ffffff;
     --border-color: #e5e7eb;
 }
