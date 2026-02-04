@@ -133,11 +133,11 @@ body {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.875rem 2rem;
-    border-radius: 6px;
+    padding: 12px 28px;
+    border-radius: 8px; /* Not too round, not too sharp */
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.3s ease; /* Makes the color change smoothly */
     border: 2px solid transparent;
     cursor: pointer;
 }
@@ -154,9 +154,16 @@ body {
 }
 
 .btn-primary-light {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--accent-color);
+    color: white;
     border: none;
+}
+
+/* The Hover Effect: This makes the button "react" when you touch it */
+.btn-primary-light:hover {
+    background-color: #2563eb; 
+    transform: translateY(-2px); /* Moves it up slightly */
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .btn-link {
