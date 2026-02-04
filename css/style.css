@@ -321,7 +321,43 @@ body {
     margin-top: 15px;
     color: #0f172a;
 }
+.text-center { text-align: center; }
 
+.section-subtitle {
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.mentor-grid {
+    display: grid;
+    /* This forces exactly 4 columns on large screens */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: #fff;
+    padding: 25px 15px;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Responsive: 2 columns on tablets, 1 on phones */
+@media (max-width: 992px) {
+    .mentor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .mentor-grid { grid-template-columns: 1fr; }
+}
 /* Ensure images don't break the circles */
 .team-img {
     width: 100%;
